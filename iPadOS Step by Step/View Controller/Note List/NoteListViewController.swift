@@ -14,6 +14,14 @@ class NoteListViewController: UIViewController {
     private let store = NoteStore.shared
     
     // MARK: - Key commands
+    override var keyCommands: [UIKeyCommand]? {
+        return [
+            UIKeyCommand(input: "n",
+                         modifierFlags: .command,
+                         action: #selector(addNewNote),
+                         discoverabilityTitle: "New Note")
+        ]
+    }
     
     // MARK: - View
     override func viewDidLoad() {
@@ -27,6 +35,7 @@ class NoteListViewController: UIViewController {
     }
     
     private func setup() {
+        collectionView.backgroundColor = .secondarySystemBackground
         collectionView.register(UINib(nibName: "NoteCell", bundle: nil), forCellWithReuseIdentifier: NoteCell.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -61,11 +70,13 @@ class NoteListViewController: UIViewController {
     // MARK: -
     @objc
     private func addNewNote() {
-        
+        store.addNewNote()
+        collectionView.reloadData()
     }
     
     private func deleteAll() {
-        
+        store.deleteAll()
+        collectionView.reloadData()
     }
     
     private func presentSharesheet(item: Any?, from indexPath: IndexPath) {
@@ -75,7 +86,21 @@ class NoteListViewController: UIViewController {
 
 // MARK: - Contextual menu
 extension NoteListViewController {
-    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
+            
+            let delete = UIAction(title: "Delete",
+                                  image: UIImage(systemName: "trash"),
+                                  identifier: nil,
+                                  attributes: .destructive) { (_) in
+                                    self.store.delete(at: indexPath.item)
+                                    self.collectionView.reloadData()
+            }
+            let menu = UIMenu(title: "Delete", image: nil, identifier: nil, options: .displayInline, children: [delete])
+            return menu
+        }
+        return configuration
+    }
 }
 
 // MARK: - Collection view

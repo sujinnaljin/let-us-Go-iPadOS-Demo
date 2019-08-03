@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		16F1B94E22F529DA00CE60D7 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F1B94D22F529DA00CE60D7 /* ImageWrapper.swift */; };
 		16F1B95022F529EE00CE60D7 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F1B94F22F529EE00CE60D7 /* NoteStore.swift */; };
 		16F1B95222F52A2800CE60D7 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F1B95122F52A2800CE60D7 /* Preference.swift */; };
+		3B28303922F56DEF00ABBD5D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B28303822F56DEF00ABBD5D /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		16F1B94D22F529DA00CE60D7 /* ImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWrapper.swift; sourceTree = "<group>"; };
 		16F1B94F22F529EE00CE60D7 /* NoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
 		16F1B95122F52A2800CE60D7 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		3B28303A22F56F8900ABBD5D /* iPadOS Step by Step.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iPadOS Step by Step.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B28303922F56DEF00ABBD5D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 		16A01CF322F4C98300706276 /* iPadOS Step by Step */ = {
 			isa = PBXGroup;
 			children = (
+				3B28303A22F56F8900ABBD5D /* iPadOS Step by Step.entitlements */,
 				16A01D0822F4E5F000706276 /* Application */,
 				16A01D0C22F4E61100706276 /* User Interface */,
 				16A01D0B22F4E5F800706276 /* Model */,
@@ -172,6 +176,7 @@
 			);
 			name = "iPadOS Step by Step";
 			packageProductDependencies = (
+				3B28303822F56DEF00ABBD5D /* SnapKit */,
 			);
 			productName = "iPadOS Step by Step";
 			productReference = 16A01CF122F4C98300706276 /* iPadOS Step by Step.app */;
@@ -202,6 +207,7 @@
 			);
 			mainGroup = 16A01CE822F4C98300706276;
 			packageReferences = (
+				3B28303722F56DEF00ABBD5D /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 16A01CF222F4C98300706276 /* Products */;
 			projectDirPath = "";
@@ -384,8 +390,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iPadOS Step by Step/iPadOS Step by Step.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				DEVELOPMENT_TEAM = Y4XABUQ539;
 				INFOPLIST_FILE = "iPadOS Step by Step/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -393,7 +401,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.iPadOS-Step-by-Step";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -403,7 +411,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iPadOS Step by Step/iPadOS Step by Step.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				INFOPLIST_FILE = "iPadOS Step by Step/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -412,7 +422,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.iPadOS-Step-by-Step";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,6 +450,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B28303722F56DEF00ABBD5D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B28303822F56DEF00ABBD5D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B28303722F56DEF00ABBD5D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 16A01CE922F4C98300706276 /* Project object */;
 }
